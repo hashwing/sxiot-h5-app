@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>HUI </title>
+		<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	</head>
+
+	<body>
+		<div class="hui-wrap device-list">
+			<div id="refreshContainer" class="hui-refresh">
+				<!-- hui-refresh-icon 为下拉动画展示区域 -->
+				<div class="hui-refresh-icon"></div>
+				<div class="hui-refresh-content" id="list">
+					<!-- 内容展示区域 -->
+					<div class="hui-media-list" style="padding:10px;">
+						<ul id="gateway-id">
+						</ul>
+						<button type="button" id="add-device" class="hui-button hui-button-large">添加</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+		<script src="../js/hui-refresh-load-more.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/data/config.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../js/data/device.js" charset="UTF-8"></script>
+		<script type="text/javascript">
+			//禁用返回键
+			hui.Back = null;
+			hui.plusReady(function() {
+				var indexView = plus.webview.getLaunchWebview()
+				var nextPage = {
+					pageId: 'page/device-msg.html',
+					callBack: function() {
+						indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-device-charge").addClass("hui-footer-active")');
+					}
+				}
+				var prevPage = null;
+				hui.drag(prevPage, nextPage);
+				GetGateway()
+				hui.refresh('#refreshContainer', refresh);
+			});
+
+			hui('#btn').click(function() {
+				hui.scrollTop(0);
+			});
+
+			hui('#add-device').click(function() {
+				hui.open("barcode_scan.html", {}, true, {})
+			});
+
+			function toDesc(id, name) {
+				var _self = plus.webview.currentWebview()
+				_self.opener()
+				//plus.nativeUI.showWaiting();
+				//hui.create("device-desc.html",{},true,{name:name,id:id})
+				hui.open("device-desc.html", {}, true, {
+					name: name,
+					gateway_id: id
+				})
+			}
+
+			function scaned(t, r, f) {
+				AddGateway(r)
+			}
+			
+			function refresh(){
+				GetGateway()
+				hui.endRefresh();
+			}
+		</script>
+	</body>
+
+</html>

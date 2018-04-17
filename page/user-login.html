@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>随心物联</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body style="background:#F4F5F6;">
+<header class="hui-header index-header"> 
+    <h1>随心物联</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:35px;"><h1 style="border:0px;">用户登录</h1></div>
+    <div style="margin:28px; margin-bottom:15px;" class="hui-form" id="form1">
+        <div class="hui-form-items">
+            <input type="text" id="account" class="hui-input hui-input-clear" placeholder="用户名"/>
+        </div>
+        <div class="hui-form-items">
+            <input type="password" id="pwd" class="hui-input hui-pwd-eye" placeholder="登录密码"/>
+        </div>
+    </div>
+    <div style="padding:28px; padding-top:0px;">
+        <button type="button" class="hui-button hui-button-large hui-primary" id="submit">登录</button>
+        <button style="margin-top:20px;" type="button" class="hui-button hui-button-large" id="reg">立即注册</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script src="../js/hui-form.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="../js/data/config.js" charset="UTF-8"></script>
+<script type="text/javascript">
+//禁用返回键
+hui.Back = null; 
+hui('#submit').click(function(){
+	hui.loading('登录中。。。');
+	var account=hui('#account').val();
+    var password=hui('#pwd').val();
+    hui.postSxito(
+		api_base+'/login',
+		'123',
+		{account:account, password:password},
+		function(msg){
+			plus.storage.setItem("token",msg.token);
+			hui.loading(false, true);
+	        var _self =plus.webview.currentWebview()
+	        var wo = _self.opener();
+	        wo.evalJS('loginSuccess()')
+     		_self.close()
+	    },
+	    function(e){
+	    	hui.loading(false, true);
+	        hui.iconToast('登录失败', 'warn');
+	    }
+	);
+	hui.loading(false, true);
+});
+hui('#reg').click(function(){
+    hui.open("user-reg.html",{},true,{}) 
+});
+</script>
+</body>
+</html>

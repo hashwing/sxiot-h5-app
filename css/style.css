@@ -1,0 +1,37 @@
+body{
+	background-color: #EBEBEB;
+}
+.index-header{
+	background-color: #4D4D4D;
+}
+.index-header h1{
+	color: #FFFFFF; 
+}
+
+.device-list-list span{
+	
+}
+
+.device-list .iconfont{
+	font-size: 50px;
+}
+
+.device-desc .iconfont{
+	font-size: 40px;
+}
+
+.device-desc-list {
+	background-color: #FFFFFF;
+	border-bottom: solid 1px #E4E3E6;
+}
+
+.device-desc-list .device-val{
+	padding:6px 8px;
+	float: right;
+}
+
+.device-desc .hui-range input[type='range']{
+	margin: 10px 10px;
+	height: 5px;
+	width: 85%;
+}
