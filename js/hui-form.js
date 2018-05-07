@@ -2,7 +2,7 @@
 hui 表单元素初始及表单验证插件
 作者 : 深海  5213606@qq.com
 官网 : http://www.hcoder.net/hui
-*/
+*/ 
 hui.formInit = function(){hui.formTextClear(); hui.formPwdEye();};
 hui.formTextClear = function(){
 	var textClears = document.getElementsByClassName('hui-input-clear');

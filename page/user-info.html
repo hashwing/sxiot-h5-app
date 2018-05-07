@@ -24,7 +24,7 @@
         <ul>
             <li><a href="javascript:void(0);" class="hui-arrow hui-icons hui-icons-help">&nbsp;&nbsp;关于我们</a></li>
             <li><a href="javascript:void(0);" class="hui-arrow hui-icons hui-icons-write">&nbsp;&nbsp;意见反馈</a></li>
-            <li><a href="javascript:void(0);" class="hui-arrow hui-icons hui-icons-nav">&nbsp;&nbsp;更多功能</a></li>
+            <li><a href="javascript:config();" class="hui-arrow hui-icons hui-icons-nav">&nbsp;&nbsp;配置</a></li>
         </ul>
     </div>
     <div class="hui-list" style="background:#FFFFFF; margin-top:28px;">
@@ -50,8 +50,15 @@ hui.plusReady(function(){
  
  function exit(){
  	plus.storage.removeItem("token")
- 	hui.open("user-login.html",{},true,{})
+ 	plus.runtime.quit();
+   	hui.open("user-login.html",{},true,{})
+ 	//hui.open("user-login.html",{},true,{})
  }
+ 
+ function config(){
+ 	hui.open("smart-config.html",{},true,{})
+ }
+ 
 </script>
 </body>
 </html>

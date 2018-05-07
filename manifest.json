@@ -1,7 +1,7 @@
 {
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H5F655035",/*应用的标识，创建应用时自动生成，勿手动修改*/
-    "name": "sxito1.0",/*应用名称，程序桌面图标名称*/
+    "name": "随心物联",/*应用名称，程序桌面图标名称*/
     "version": {
         "name": "1.0",/*应用版本名称*/
         "code": ""
@@ -87,9 +87,7 @@
         "Maps": {
             "description": "管理地图插件"
         },
-        "Speech": {
-            "description": "管理语音识别插件"
-        },
+        "Speech": {},
         "Webview":{
         	"description": "窗口管理"
         },
@@ -126,7 +124,7 @@
                 "keystore": "",/*Android应用打包使用的密钥库文件*/
                 "password": "",/*Android应用打包使用密钥库中证书的密码*/
                 "aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
-               "permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
+               "permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission  android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
 				/*使用Native.js调用原生安卓API需要使用到的系统权限*/
             },
             "orientation": [
@@ -162,11 +160,11 @@
                     }
                 },
                 "android": {
-                    "mdpi": "", /*普通屏程序图标，分辨率：48x48*/
-                    "ldpi": "", /*大屏程序图标，分辨率：48x48*/
-                    "hdpi": "", /*高分屏程序图标，分辨率：72x72*/
-                    "xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
-                    "xxhdpi": ""/*1080P 高分屏程序图标，分辨率：144x144*/
+                    "mdpi": "img/logo.png", /*普通屏程序图标，分辨率：48x48*/
+                    "ldpi": "img/logo.png", /*大屏程序图标，分辨率：48x48*/
+                    "hdpi": "img/logo.png", /*高分屏程序图标，分辨率：72x72*/
+                    "xhdpi": "img/logo.png",/*720P高分屏程序图标，分辨率：96x96*/
+                    "xxhdpi": "img/logo.png","xxxhdpi":"img/logo.png"/*1080P 高分屏程序图标，分辨率：144x144*/
                 }
             },
             "splashscreen": {
@@ -193,12 +191,12 @@
                 "android": {
                     "mdpi": "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi": "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": ""/*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi": "D:/项目/毕业设计/图片/启动页.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi": "D:/项目/毕业设计/图片/启动页.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi": "D:/项目/毕业设计/图片/启动页.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
-        }
+        },"ads":{"rp":false,"splash":false,"push":false},"adid":""
     },
 	"dependencies": {
 		"pages": {
@@ -229,7 +227,8 @@
 					"css/style.css",
 					"css/iconfont.css",
 					"css/fonts/iconfont.ttf",
-					"css/fonts/iconfont-my.ttf"
+					"css/fonts/iconfont-my.ttf",
+					"js/hui-refresh-load-more.js"
 				],
 				"refer": [
 					"page/device-desc.html",
@@ -261,7 +260,8 @@
 					"js/paho-mqtt-min.js"
 				],
 				"refer": [
-					"page/user-login.html"
+					"page/user-login.html",
+					"page/smart-config.html"
 				],
 				"priority": 0
 			},
@@ -292,6 +292,13 @@
 					"page/user-login.html"
 				],
 				"priority": 0
+			},
+			"page/smart-config.html": {
+				"resources": [
+					"js/hui-form.js"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -307,12 +314,27 @@
 				"js/cities.js",
 				"js/hui-swipe.js",
 				"js/hui-select-beautify.js",
-				"js/hui-refresh-load-more.js",
 				"js/hui-picker.js",
 				"js/hui-popover-msg.js",
-				"js/hui-form.js",
 				"css/fonts/iconfont.eot"
 			]
 		}
-	}
+	},
+	"unpackage":[
+	  "css/fonts/iconfont.eot",
+	  "css/fonts/iconfont.svg",
+	  "js/cities.js",
+	  "js/hui-image-cuter.js",
+	  "js/hui-image-preview.js",
+	  "js/hui-picker.js",
+	  "js/hui-popover-msg.js",
+	  "js/hui-refresh-load-more.js",
+	  "js/hui-select-beautify.js",
+	  "js/hui-star.js",
+	  "js/hui-swipe.js",
+	  "js/hui-tab.js",
+	  "js/hui-touch-pwd.js",
+	  "js/hui-water-fall.js",
+	  "copy.html"
+	]
 }

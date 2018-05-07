@@ -1,82 +1,89 @@
 {
-	"index.html": {
-		"resources": [
-			"css/hui.css",
-			"css/fonts/iconfont.woff",
-			"js/hui.js",
-			"css/style.css",
-			"img/sxito-logo.png",
-			"page/device-list.html",
-			"page/user-info.html"
-		],
-		"refer": [
-			"page/device-list.html",
-			"page/user-info.html",
-			"page/device-charge.html",
-			"page/message-list.html",
-			"page/user-login.html",
-			"page/user-reg.html",
-			"page/device-msg.html"
-		]
-	},
-	"page/device-list.html": {
-		"resources": [
-			"css/hui.css",
-			"js/hui.js",
-			"css/fonts/iconfont.woff",
-			"css/style.css",
-			"css/iconfont.css",
-			"css/fonts/iconfont.ttf",
-			"css/fonts/iconfont-my.ttf"
-		],
-		"refer": [
-			"page/device-desc.html",
-			"page/barcode_scan.html",
-			"page/user-login.html"
-		]
-	},
-	"page/device-charge.html": {
-		"resources": [
-			"css/hui.css",
-			"js/hui.js"
-		]
-	},
-	"page/message-list.html": {
-		"resources": [
-			"css/hui.css",
-			"js/hui.js"
-		]
-	},
-	"page/user-info.html": {
-		"resources": [
-			"css/hui.css",
-			"js/hui.js",
-			"js/paho-mqtt-min.js"
-		],
-		"refer": [
-			"page/user-login.html"
-		]
-	},
-	"page/device-desc.html": {
-		"resources": [
-			"css/hui.css",
-			"css/fonts/iconfont.woff",
-			"js/hui.js",
-			"css/iconfont.css",
-			"css/style.css",
-			"js/hui-accordion.js",
-			"css/fonts/iconfont-my.ttf"
-		]
-	},
-	"page/user-login.html": {
-		"refer": [
-			"index.html",
-			"page/user-reg.html"
-		]
-	},
-	"check.html": {
-		"refer": [
-			"page/user-login.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "css/hui.css",
+      "css/fonts/iconfont.woff",
+      "js/hui.js",
+      "css/style.css",
+      "img/sxito-logo.png",
+      "page/device-list.html",
+      "page/user-info.html"
+    ],
+    "refer": [
+      "page/device-list.html",
+      "page/user-info.html",
+      "page/device-charge.html",
+      "page/message-list.html",
+      "page/user-login.html",
+      "page/user-reg.html",
+      "page/device-msg.html"
+    ]
+  },
+  "page/device-list.html": {
+    "resources": [
+      "css/hui.css",
+      "js/hui.js",
+      "css/fonts/iconfont.woff",
+      "css/style.css",
+      "css/iconfont.css",
+      "css/fonts/iconfont.ttf",
+      "css/fonts/iconfont-my.ttf",
+      "js/hui-refresh-load-more.js"
+    ],
+    "refer": [
+      "page/device-desc.html",
+      "page/barcode_scan.html",
+      "page/user-login.html"
+    ]
+  },
+  "page/device-charge.html": {
+    "resources": [
+      "css/hui.css",
+      "js/hui.js"
+    ]
+  },
+  "page/message-list.html": {
+    "resources": [
+      "css/hui.css",
+      "js/hui.js"
+    ]
+  },
+  "page/user-info.html": {
+    "resources": [
+      "css/hui.css",
+      "js/hui.js",
+      "js/paho-mqtt-min.js"
+    ],
+    "refer": [
+      "page/user-login.html",
+      "page/smart-config.html"
+    ]
+  },
+  "page/device-desc.html": {
+    "resources": [
+      "css/hui.css",
+      "css/fonts/iconfont.woff",
+      "js/hui.js",
+      "css/iconfont.css",
+      "css/style.css",
+      "js/hui-accordion.js",
+      "css/fonts/iconfont-my.ttf"
+    ]
+  },
+  "page/user-login.html": {
+    "refer": [
+      "index.html",
+      "page/user-reg.html"
+    ]
+  },
+  "check.html": {
+    "refer": [
+      "page/user-login.html"
+    ]
+  },
+  "page/smart-config.html": {
+    "resources": [
+      "js/hui-form.js"
+    ]
+  }
 }

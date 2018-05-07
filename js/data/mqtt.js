@@ -7,7 +7,7 @@ function connect(id){
 	client.onConnectionLost = onConnectionLost;
 	client.onMessageArrived = onMessageArrived;
 	hui.loading('正在连接服务器。。。');
-	client.connect({onSuccess:onConnect,keepAliveInterval:40,reconnect:true});
+	client.connect({onSuccess:onConnect,userName:client_id,password:"123456",keepAliveInterval:40,reconnect:true});
 }
 
 function onConnect() {
@@ -26,6 +26,7 @@ function onConnectionLost(responseObject) {
 
 function onMessageArrived(message) {
 	if (message.payloadString!="update"){
+		console.log(message.payloadString)
 		DeviceType[message.destinationName].Update({device_id:message.destinationName,data:message.payloadString});
 	}
 }

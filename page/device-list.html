@@ -43,7 +43,6 @@
 				var prevPage = null;
 				hui.drag(prevPage, nextPage);
 				GetGateway()
-				hui.refresh('#refreshContainer', refresh);
 			});
 
 			hui('#btn').click(function() {
@@ -71,7 +70,6 @@
 			
 			function refresh(){
 				GetGateway()
-				hui.endRefresh();
 			}
 		</script>
 	</body>

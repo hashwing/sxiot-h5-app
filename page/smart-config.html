@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+		<script src="../js/hui-form.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/data/smart-config.js" charset="UTF-8"></script>
+	</head>
+
+	<body style="background:#F4F5F6;">
+		<header class="hui-header index-header">
+			<h1>随心物联</h1>
+		</header>
+		<div class="hui-wrap">
+			<div class="hui-center-title" style="margin-top:35px;">
+				<h1 style="border:0px;">配置设备wifi</h1></div>
+			<div style="margin:28px; margin-bottom:15px;" class="hui-form" id="form1">
+				<div class="hui-form-items">
+					<input type="text" id="ssid" class="hui-input hui-input-clear" placeholder="SSID" />
+				</div>
+				<div class="hui-form-items">
+					<input type="password" id="pwd" class="hui-input hui-pwd-eye" placeholder="wifi密码" />
+				</div>
+			</div>
+			<div style="padding:28px; padding-top:0px;">
+				<button type="button" class="hui-button hui-button-large hui-primary" id="submit">配置</button>
+			</div>
+		</div>
+				<script type="text/javascript">
+
+			document.addEventListener('plusready', function() {
+				hui.formInit();
+				var name = getWifiName()
+				if(name == null) {
+					hui("#ssid").val("未发现连接wifi,确保手机连接上wifi")
+				} else {
+					hui("#ssid").val(name)
+				}
+				console.log(name)
+				//findServer()
+			});
+
+			function findServer() {
+				var DatagramSocket = plus.android.importClass("java.net.DatagramSocket");
+				var DatagramPacket = plus.android.importClass("java.net.DatagramPacket");
+				var InetAddress = plus.android.importClass("java.net.InetAddress");
+				var String = plus.android.importClass("java.lang.String");
+				var udp = new DatagramSocket();
+				//var data = new String("测试发送数据").getBytes("gb2312"); //发送中文需要指定编码
+				//var packet = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+				//测试改良
+				var StrictMode = plus.android.importClass("android.os.StrictMode");
+				var Build = plus.android.importClass("android.os.Build");
+				if(Build.VERSION.SDK_INT > 9) {
+					var policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+					StrictMode.setThreadPolicy(policy);
+				}
+				var lead = ["1", "12", "123", "1234"]
+				//				var md = [8, 21, 40, 52]
+				//				var pd = [64, 81, 101, 126]
+				//				var d = [228, 128, 354, 305, 342, 336, 157, 129, 334]
+				var ssid = hui('#ssid').val()
+				var pwd = hui('#pwd').val()
+				var md = magicCode(ssid, pwd)
+				var pd = prefixCode(pwd)
+				var d = dataCode(ssid, pwd)
+				for(var i = 0; i < 20; i++) {
+					for(var j = 0; j < 4; j++) {
+						var data = new String(lead[j]).getBytes("gb2312"); //发送中文需要指定编码
+						var packet = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+						udp.send(packet);
+					}
+				}
+				for(var i = 0; i < 20; i++) {
+					md.forEach(function(v, i) {
+						var str = ""
+						for(var j = 0; j < v; j++) {
+							str += "a"
+						}
+						var data = new String(str).getBytes("gb2312"); //发送中文需要指定编码
+						var packet = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+						udp.send(packet);
+					})
+				}
+
+				for(var i = 0; i < 20; i++) {
+					pd.forEach(function(v, i) {
+						var str = ""
+						for(var j = 0; j < v; j++) {
+							str += "a"
+						}
+						var data = new String(str).getBytes("gb2312"); //发送中文需要指定编码
+						var packet = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+						udp.send(packet);
+					})
+				}
+
+				for(var i = 0; i < 20; i++) {
+					d.forEach(function(v, i) {
+						var str = ""
+						for(var j = 0; j < v; j++) {
+							str += "a"
+						}
+						var data = new String(str).getBytes("gb2312"); //发送中文需要指定编码
+						var packet = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+						udp.send(packet);
+					})
+				}
+				udp.close();
+				hui.loading(false, true);
+			}
+			hui('#submit').click(function() {
+				hui.loading('正在配置，请确保设备处于开启状态');
+				setTimeout("findServer();",1000);
+			})
+		</script>
+	</body>
+
+</html>

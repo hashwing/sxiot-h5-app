@@ -1,6 +1,6 @@
-var mqtt_ip='119.29.154.98'
-var mqtt_port=8083
-var api_base='http://119.29.154.98:9005/api/app'
+var mqtt_ip='119.29.16.73'
+var mqtt_port=8884
+var api_base='http://'+mqtt_ip+':9005/api/app'
 
 
 function Get(url,success,err){
