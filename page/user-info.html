@@ -14,7 +14,7 @@
                 <a href="javascript:hui.toast('hi...');">
                     <div class="hui-media-list-img"><img src="../img/user.jpg" /></div>
                     <div class="hui-media-content">
-                        <h1>hashwing</h1>
+                        <h1 id="account">--</h1>
                     </div>
                 </a>
             </li>
@@ -34,10 +34,12 @@
     </div>
 </div>
 <script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/data/config.js" charset="UTF-8"></script>
 <script type="text/javascript"> 
 //禁用返回键
 hui.Back = null;
 hui.plusReady(function(){
+	getuser()
     var indexView = plus.webview.getLaunchWebview();
     var prevPage = {
         pageId : 'page/message-list.html', 
@@ -53,6 +55,18 @@ hui.plusReady(function(){
  	plus.runtime.quit();
    	hui.open("user-login.html",{},true,{})
  	//hui.open("user-login.html",{},true,{})
+ }
+ 
+ function getuser(){
+ 	Get(
+						api_base + '/user',
+						function(msg) {
+							hui("#account").html(msg.user_account)
+						},
+						function(e) {
+							hui.toast('网络连接失败1');
+						}
+	);
  }
  
  function config(){

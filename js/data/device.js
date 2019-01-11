@@ -168,7 +168,7 @@ function GetGateway() {
 						}
 						if(e.index == 2) {
 							hui.confirm('您确认要删除该设备吗？', ['取消', '确定'], function() {
-								DelGateway(v.device_id);
+								DelGateway(v.id);
 							});
 						}
 					});

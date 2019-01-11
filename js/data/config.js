@@ -1,4 +1,4 @@
-var mqtt_ip='119.29.16.73'
+var mqtt_ip='iot.ggproject.cn'
 var mqtt_port=8884
 var api_base='http://'+mqtt_ip+':9005/api/app'
 
